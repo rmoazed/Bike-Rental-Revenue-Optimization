@@ -86,3 +86,21 @@ Potential future improvements for this project could include:
 - Learning elasticity from data instead of assuming it/manually assigning value
 - Incorporating time-series models
 - Adding uncertainty estimates
+
+
+## Folder Structure:
+
+
+- Data: contains CSV file used for project
+- Notebooks: contains Jupyter Notebook associated with project
+- src: contains .py files
+  - preprocessing.py: holds data loading, feature engineering, train/inference column alignment
+  - pricing.py: holds elasticity assumption, revenue math, price optimization
+  - train_bike_demand.py: trains the Random Forest, prints RSME/baseline metrics, runs pricing on test predictions, saves model artifacts
+  - predict_demand.py: loads saved model and feature columns, processes new input, returns demand + pricing recommendation
+ 
+
+## Installation:
+
+pip install -r requirements.txt
+
