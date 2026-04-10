@@ -4,7 +4,7 @@ This project builds an end-to-end machine learning pipeline for predicting bike 
 ## Project Overview
 
 
-As stated above this project builds an end-to-end machine learning pipeline to predict daily bike rental demand to predict daily bike rental demand and then extends the model to include a pricing simulation layer to optimize revenue. The model combines predictive modeling with assumptions based on customer sensitivity to price (elasticity).
+As stated above this project builds an end-to-end machine learning pipeline to predict daily bike rental demand and then extends the model to include a pricing simulation layer to optimize revenue. The model combines predictive modeling with assumptions based on customer sensitivity to price (elasticity).
 
 
 ## Business Problem
@@ -48,7 +48,7 @@ Train RSME was ~512 while test RSME was ~739, with a target mean of ~4500. This 
 
 ## Pricing Simulation
 
-The bike dataset, while robust, did not include any information pertaining to bike rental pricing. The project therefore introduced a simulated pricing model that assumed linear demand elasticity, implying that demand is inversely proportional to price. After a baseline demand was determined from the machine learning model, an adjusted demand was calculated as a function of price, relying on a set base price and a price sensitivity coefficient simulating how strongly customers would respond to price change. Revenue was then calculated as (price)x(adjusted demand). 
+The bike dataset, while robust, did not include any information pertaining to bike rental pricing. The project therefore introduced a simulated pricing model that assumed linear demand elasticity, implying that demand decreases as price rises. After a baseline demand was determined from the machine learning model, an adjusted demand was calculated as a function of price, relying on a set base price and a price sensitivity coefficient simulating how strongly customers would respond to price change. Revenue was then calculated as (price)x(adjusted demand). 
 
 
 ## Pricing Optimization
@@ -77,6 +77,16 @@ With a realistic elasticity assumption (alpha = 0.15), the average revenue incre
 - Small modeling assumptions (such as elasticity) dramatically affect outcome
 - Realistic models often produce modest but meaningful improvements
 
+## Limitations
+
+Limitations of the project included:
+
+
+  - Elasticity assumption rather than learned from historical transaction data
+  - Pricing was simulated rather than provided in the dataset, limiting the real-world applicability
+  - The dataset was daily aggregated, so intra-day pricing behavior was not captured
+
+
 ## Future Improvements
 
 
@@ -91,16 +101,22 @@ Potential future improvements for this project could include:
 ## Folder Structure:
 
 
-- Data: contains CSV file used for project
-- Notebooks: contains Jupyter Notebook associated with project
-- src: contains .py files
-  - preprocessing.py: holds data loading, feature engineering, train/inference column alignment
-  - pricing.py: holds elasticity assumption, revenue math, price optimization
-  - train_bike_demand.py: trains the Random Forest, prints RSME/baseline metrics, runs pricing on test predictions, saves model artifacts
-  - predict_demand.py: loads saved model and feature columns, processes new input, returns demand + pricing recommendation
+├── data/            # dataset used for the project
+├── notebooks/       # Jupyter notebook for exploration and development
+├── src/             # core Python scripts
+│   ├── preprocessing.py
+│   ├── pricing.py
+│   ├── train_bike_demand.py
+│   └── predict_demand.py
+├── models/          # saved trained model artifacts
+├── requirements.txt
+└── README.md
  
 
 ## Installation:
 
-pip install -r requirements.txt
+
+- pip install -r requirements.txt
+- python src/train_bike_demand.py
+- python src/predict_demand.py
 
