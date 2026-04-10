@@ -1,6 +1,21 @@
 # Bike-Rental-Revenue-Optimization
 This project builds an end-to-end machine learning pipeline for predicting bike demand and subsequent adjusted demand, and then optimizes revenue by finding a best price at which to rent out bikes.
 
+
+## Live Demo
+
+
+Try the app here: https://bike-rental-revenue-optimization-3ezz8dswejjajsle7fabh2.streamlit.app/
+
+
+The project predicts bike rental demand based on temporal and weather features, and then applies a pricing model estimate revenue and identify an optimal price in relation to a set base price. The Streamlit app provides an interactive dashboard allows users to simulate demand and explore optimal pricing strategies and decision making in real time. 
+
+
+## App Preview
+
+
+
+
 ## Project Overview
 
 
@@ -66,7 +81,10 @@ The price that maximized revenue was then selected.
 ## Key Results
 
 
-With a realistic elasticity assumption (alpha = 0.15), the average revenue increase was ~1.24%. Lower elasticity coefficients, such as alpha = .08, produced unrealistic behavior, always maximizing price but at the cost of dismissing the reality of customer reaction to high prices. These results demonstrate the importance of modeling assumptions when it comes to pricing decisions and, even more importantly, balancing realism with optimization. A revenue increase of 1.24% might sound underwhelming, but in a real-world scenario can actually produce meaningful increases in revenue. 
+With a realistic elasticity assumption (alpha = 0.15), the average revenue increase was ~2.06%. Lower elasticity coefficients, such as alpha = .08, produced unrealistic behavior, always maximizing price but at the cost of dismissing the reality of customer reaction to high prices. These results demonstrate the importance of modeling assumptions when it comes to pricing decisions and, even more importantly, balancing realism with optimization. A revenue increase of 2.06% might sound underwhelming, but in a real-world scenario can actually produce meaningful increases in revenue. 
+
+
+It was also found that optimal price remains highly stable across a wide variety of scenarios, while revenue and predicted baseline and adjusted demand fluctuate. This result is expected due to the state of the elasticity parameter in the pricing model--alpha--being fixed. As demand is modeled as a function of price with constant elasticity, changes in baseline demand primarily scale revenue rather than shifting optimal price. Thus, predicted and adjusted demand vary meaningfully across scenarios while the optimal price remains withing a narrow range. 
 
 
 ## Key Insights
@@ -93,7 +111,7 @@ Limitations of the project included:
 Potential future improvements for this project could include:
 
 
-- Learning elasticity from data instead of assuming it/manually assigning value
+- Learning elasticity from data instead of assigning a fixed value so that optimal price is able to make meaningful shifts based on weather and temporal conditions
 - Incorporating time-series models
 - Adding uncertainty estimates
 
@@ -120,4 +138,12 @@ Potential future improvements for this project could include:
 - pip install -r requirements.txt
 - python src/train_bike_demand.py
 - python src/predict_demand.py
+
+## How to Run Locally
+
+
+- Clone the repository
+- Install dependencies using requirements.txt
+- Run the app with:
+  - streamlit run bike_app.py
 
