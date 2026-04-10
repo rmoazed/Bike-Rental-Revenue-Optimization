@@ -99,7 +99,7 @@ Potential future improvements for this project could include:
 
 
 ## Folder Structure:
-'''
+```
 
 ├── data/            # dataset used for the project
 ├── notebooks/       # Jupyter notebook for exploration and development
@@ -111,7 +111,7 @@ Potential future improvements for this project could include:
 ├── models/          # saved trained model artifacts
 ├── requirements.txt
 └── README.md
-'''
+```
  
 
 ## Installation:
