@@ -13,7 +13,7 @@ The project predicts bike rental demand based on temporal and weather features, 
 
 ## App Preview
 
-
+![App Preview](images/app_preview.png)
 
 
 ## Project Overview
