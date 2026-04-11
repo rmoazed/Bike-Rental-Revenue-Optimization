@@ -8,7 +8,7 @@ This project builds an end-to-end machine learning pipeline for predicting bike 
 Try the app here: https://bike-rental-revenue-optimization-3ezz8dswejjajsle7fabh2.streamlit.app/
 
 
-The project predicts bike rental demand based on temporal and weather features, and then applies a pricing model estimate revenue and identify an optimal price in relation to a set base price. The Streamlit app provides an interactive dashboard allows users to simulate demand and explore optimal pricing strategies and decision making in real time. 
+The project predicts bike rental demand based on temporal and weather features, and then applies a pricing model estimate revenue and identify an optimal price in relation to a set base price. The Streamlit app provides an interactive dashboard allows users to simulate demand and explore optimal pricing strategies and decision making in real time, including setting the baseline pricing assumptions and elasticity constant (decided customer sensitivity to price). 
 
 
 ## App Preview
